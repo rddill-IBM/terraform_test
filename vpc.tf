@@ -61,8 +61,8 @@ resource ibm_is_instance "vsi1" {
   profile = "cc1-2x4"
 
   primary_network_interface {
-    subnet          = ibm_is_subnet.subnet1.id
-    security_groups = [ibm_is_security_group.sg1.id]
+    subnet          = "${ibm_is_subnet.subnet1.id}"
+    security_groups = ["${ibm_is_security_group.sg1.id}"]
   }
 }
 
@@ -76,5 +76,5 @@ output sshcommand {
 }
 
 output vpc_id {
- value = ibm_is_vpc.vpc.id
+ value = "${ibm_is_vpc.vpc.id}"
 }
